@@ -1,0 +1,18 @@
+{
+  "name": "PruebaCICD",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.30.3",
+  "dependencies": {
+    "express": "^5.3.0",
+    "jest": "^30.5.2",
+    "supertest": "^7.3.2"
+  }
+}
