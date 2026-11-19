@@ -1,36 +1,20 @@
-# .github/workflows/ci.yml
-name: CI - Tests Automáticos
+name: CI
+on: [push, pull_request]
 
-# El "on" define CUÁNDO se ejecutará este flujo de trabajo
-on:
-  push:
-    branches: ["main"] # Cada vez que hagas push a 'main'
-
-# Un workflow se compone de uno o varios "jobs"
 jobs:
   test:
-    name: Ejecutar pruebas
-    runs-on: ubuntu-latest # Usa una máquina virtual de Ubuntu gratuita de GitHub
-
-    # "steps" son las tareas individuales que se ejecutan dentro del job
+    runs-on: ubuntu-latest
     steps:
-      # Paso 1: Descargar el código del repositorio
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
         with:
-          version: 9
+          version: 10
 
-      # Paso 2: Configurar Node.js con la versión que usamos
-      - name: Usar Node.js 20.x
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: "20.x"
-          cache: "pnpm" # Esto acelera las instalaciones futuras
+          node-version: "26"
+          cache: "pnpm"
 
-      # Paso 3: Instalar las dependencias
-      - name: Instalar dependencias
-        run: pnpm install --frozen-lockfile # 'install' es más rápido y confiable para CI que 'ci'
-
-      # Paso 4: ¡Ejecutar las pruebas!
-      - name: Correr pruebas
-        run: pnpm test
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
