@@ -16,6 +16,9 @@ jobs:
     steps:
       # Paso 1: Descargar el código del repositorio
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
 
       # Paso 2: Configurar Node.js con la versión que usamos
       - name: Usar Node.js 20.x
@@ -26,7 +29,7 @@ jobs:
 
       # Paso 3: Instalar las dependencias
       - name: Instalar dependencias
-        run: pnpm install # 'install' es más rápido y confiable para CI que 'ci'
+        run: pnpm install --frozen-lockfile # 'install' es más rápido y confiable para CI que 'ci'
 
       # Paso 4: ¡Ejecutar las pruebas!
       - name: Correr pruebas
