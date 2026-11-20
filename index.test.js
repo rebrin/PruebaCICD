@@ -8,3 +8,10 @@ describe("GET /", () => {
     expect(response.body.mensaje).toBe("hola desde nuestro primer CI/CD");
   });
 });
+
+describe("GET /", () => {
+  it("estatus 200", async () => {
+    const response = await request(app).get("/");
+    expect(response.status).toBe(200);
+  });
+});
