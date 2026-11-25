@@ -10,6 +10,10 @@ app.get("/saludo", (req, res) => {
   res.json({ mensaje: "Mandando un saludo" });
 });
 
+app.get("/prueba", (req, res) => {
+  res.json({ mensaje: "Esta es una ruta de prueba" });
+});
+
 if (require.main === module) {
   app.listen(3000, () => {
     console.log("Server is running on port 3000");
