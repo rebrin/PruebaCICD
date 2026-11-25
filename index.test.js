@@ -30,4 +30,4 @@ describe("GET /prueba", () => {
     expect(response.status).toBe(200);
     expect(response.body.mensaje).toBe("Esta es una ruta de prueba");
   });
-}
+});
