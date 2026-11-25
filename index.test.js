@@ -15,3 +15,11 @@ describe("GET /", () => {
     expect(response.status).toBe(200);
   });
 });
+
+describe("GET /saludo", () => {
+  it('should return a JSON response with the message "Mandando un saludo"', async () => {
+    const response = await request(app).get("/saludo");
+    expect(response.status).toBe(200);
+    expect(response.body.mensaje).toBe("Mandando un saludo");
+  });
+});
