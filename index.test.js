@@ -27,7 +27,7 @@ describe("GET /saludo", () => {
 describe("GET /prueba", () => {
   it('should return a JSON response with the message "Esta es una ruta de prueba"', async () => {
     const response = await request(app).get("/prueba");
-    expect(response.status).toBe(500);
+    expect(response.status).toBe(200);
     expect(response.body.mensaje).toBe("Esta es una ruta de prueba");
   });
 }
